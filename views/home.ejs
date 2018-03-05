@@ -1,0 +1,280 @@
+<% include partials/header %>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+        
+        
+</script>
+<style>
+
+
+
+/*
+ * Base structure
+ */
+    
+    html,
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background-color: white;
+      /*background-img: <img src = "/views/Screen Shot 2018-02-15 at 11.00.15 AM_burned.png">;*/
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      text-color: #68b7e7;
+    }
+    body {
+      color: #68b7e7;
+      text-align: center;
+      /*text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);*/
+      font-family: 'Roboto', sans-serif;
+    }
+    h1{
+      font-family: 'Roboto', sans-serif;
+      color:#68b7e7;
+    }
+    /*.row > div {*/
+    /*    margin-top:0px;*/
+    /*    padding: 20px;*/
+    /*    outline: 2px solid #ccc;*/
+    /*    outline-offset: -10px;*/
+        /*-moz-outline-radius: 10px;*/
+        /*-webkit-outline-radius: 10px;*/
+    /* }*/
+    
+    /* Extra markup and styles for table-esque vertical and horizontal centering */
+    .site-wrapper {
+      display: table;
+      width: 100%;
+      height: 50%; 
+      min-height: 100%;
+      -webkit-box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+              box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+    }
+    .site-wrapper-inner {
+      display: table-cell;
+      vertical-align: top;
+    }
+    .cover-container {
+      margin-right: auto;
+      margin-left: auto;
+    }
+    
+    /* Padding for spacing */
+    .inner {
+      padding: 2rem;
+    }
+    
+    
+    /*
+     * Header
+     */
+    
+    .masthead {
+      margin-bottom: 2rem;
+    }
+    
+    .masthead-brand {
+      margin-bottom: 0;
+    }
+    
+    .nav-masthead .nav-link {
+      padding: .25rem 0;
+      font-weight: bold;
+      color: rgba(255,255,255,.5);
+      background-color: transparent;
+      border-bottom: .25rem solid transparent;
+    }
+    
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+      border-bottom-color: rgba(255,255,255,.25);
+    }
+    
+    .nav-masthead .nav-link + .nav-link {
+      margin-left: 1rem;
+    }
+    
+    .nav-masthead .active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+    
+    @media (min-width: 48em) {
+      .masthead-brand {
+        float: left;
+      }
+      .nav-masthead {
+        float: right;
+      }
+    }
+    
+    
+    /*
+     * Cover
+     */
+    
+    .cover {
+      padding: 0 1.5rem;
+    }
+    .cover heading{
+      
+    }
+    .cover .btn-lg {
+      padding: .75rem 1.25rem;
+      font-weight: bold;
+    }
+    
+    
+    /*
+     * Footer
+     */
+    
+    .mastfoot {
+      color: rgba(255,255,255,.5);
+    }
+    .navbar-collapse{
+      height: 160px;
+      transition: height .5s cubic-bezier(.86,0,.07,1);
+      overflow: hidden;
+    }
+    .collapse2{
+      
+      height: 0;
+    }
+    .navbar fixed-bottom {
+      font-size: 15px;
+      /*text-align: right;*/
+      padding-left: 90%;
+    }
+    
+    
+    /*
+     * Affix and center
+     */
+     
+    
+    @media (min-width: 40em) {
+      /* Pull out the header and footer */
+      .masthead {
+        position: center;
+        top: 50;
+      }
+      .mastfoot {
+        position: fixed;
+        bottom: 0;
+      }
+      /* Start the vertical centering */
+      .site-wrapper-inner {
+        vertical-align: middle;
+      }
+      /* Handle the widths */
+      .masthead,
+      .mastfoot,
+      .cover-container {
+        width: 100%; /* Must be percentage or pixels for horizontal alignment */
+      }
+    }
+    
+    @media (min-width: 62em) {
+      .masthead,
+      .mastfoot,
+      .cover-container {
+        width: 42rem;
+      }
+    }
+    .navbar-toggler .navbar-toggler-right{
+      color: white;
+      
+    }
+    #pulse {
+        -webkit-animation-duration: .5s;
+        -webkit-animation-delay: .8s;
+        -webkit-animation-iteration-count: 1;
+        }
+    #roteIn {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: .2s;
+    -webkit-animation-iteration-count: 1;
+    }
+    
+.nav1{
+  border-top: 1px solid rgba(104,183,231,.1);
+  width:20%;
+}
+
+</style>
+
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button onclick="toggleNav()" style: "color: white" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon" style: "color: white" ></span>
+  </button>
+  <a class="navbar-brand" href="https://rhume.squarespace.com" style="color: #68b7e7">Work Smarter</a>
+  <div class="collapse2 navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto" style="color: white;">
+      <li class="nav-item" style="color: white;">
+        <a class="nav-link" href="/login" style="color: #68b7e7;">Book a Room</a>
+      </li>
+      <div class="nav1 mx-auto"></div>
+      <li class="nav-item" style="color: white;">
+        <a class="nav-link" href="/spaces" style="color: #68b7e7;">Find a Space</a>
+      </li>
+      <div class="nav1 mx-auto"></div>
+      <li class="nav-item" style="color: white;">
+        <a class="nav-link" href="/groups" style="color: #68b7e7;">Study groups</a>
+      </li>
+      <div class="nav1 mx-auto mx-auto"></div>
+      <li class="nav-item" style="color: white;">
+        <a class="nav-link" href="/download" style="color: #68b7e7;">Get the App</a>
+      </li>
+    </ul>
+    <!--<span class="navbar-text" style="color: white;">-->
+    <!--  Navbar text with an inline element-->
+    <!--</span>-->
+  </div>
+</nav>
+
+<nav class="navbar fixed-bottom navbar-light bg-faded">
+  <a class="navbar-brand" href="#"style = "font-size: 10px">Copyright Rhume 2018, created by Edward L. Kreutzer</a>
+
+</nav>
+
+
+<div class = "site-wrapper">
+    <div class = "site-wrapper-inner">
+        <div class = "cover-container">
+            <div class = "masthead clearfix">
+                <div class="text-center">
+                      <img class = "animated rotateInDownRight" id="roteIn" src="https://i.imgur.com/pDBlNgw.png?1" title="Rhume"/>
+                </div>
+                <div class = "inner cover">
+                    <h1 class="display-1" id = "pulse" style: "padding-bottom: 20px, margin: 20px, color: #68b7e7">Rhume</h1>
+                    <!--<p>Track the location of a GPS-enabled Raspberry Pi Model 3 B</p>-->
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm" style="padding-right:20px; border-right: 3px solid #ccc;">
+                          <a class="nav-link" href="/book" style="color: #68b7e7;">Book a Room<span class="sr-only">(current)</span></a>
+                        </div>
+                        <div class="col-sm" style="padding-right:20px; border-right: 3px solid #ccc;">
+                          <a class="nav-link" href="/spaces" style="color: #68b7e7;">Find Spaces<span class="sr-only">(current)</span></a>
+                        </div>
+                        <div class="col-sm">
+                          <a class="nav-link" href="/groups" style="color: #68b7e7;">Join Groups<span class="sr-only">(current)</span></a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<% include partials/footer %>

@@ -1,0 +1,109 @@
+<% include partials/header %>
+<style>
+.navbar{
+    z-index: 2;
+    position: fixed !important;
+    background-color: ##007BFF !important;
+    color:white;
+    font-size:14px;
+    height:55px;
+    width:100%;
+}
+.navbar-brand{
+  font-size:20px;
+  font-weight:400px;
+}
+body {
+  font-size: 1.2em;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  margin: 50px;
+}
+
+.custom-counter {
+  margin-left: 30px;
+  padding: 0;
+  list-style-type: none;
+  text-indent:-2em;
+}
+
+.custom-counter li {
+  counter-increment: step-counter;
+  margin-bottom: 10px;
+  padding-left:5px;
+  text-align: left;
+}
+
+.custom-counter li::before {
+  content: counter(step-counter);
+  margin-right: 5px;
+  font-size: 80%;
+  background-color: rgb(0,200,200);
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+.card-text{
+    text-align: left;
+}
+</style>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="">Rhume</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light" href="/">Home </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link waves-effect waves-light" href="/book">Book</a><span class="sr-only">(current)</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light" href="/groups">Groups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light" href="/spaces">Spaces</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link waves-effect waves-light" href="/download">Get the App</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class = "site-wrapper">
+    <div class = "site-wrapper-inner">
+        <div class = "cover-container">
+            <div class = "masthead clearfix">
+                <div class="text-center">
+                      <img class = "animated fadeInUp" id="roteIn" src="https://i.imgur.com/tCSrYye.png" heighttitle="Rhume" style="height:600px; margin-top: 80px"/>
+                </div>
+            </div>
+        </div>
+        </div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="card z-index-4 animated fadeInUp" id="building" style="width:20%; margin-left:75%; top:-500px; font-family: 'Roboto', sans-serif">
+  <div class="card text-center" style="width: 100%;">
+  <div class="card-block">
+    <h4 class="card-title">QR Code Instructions</h4>
+    <hr>
+    <p class="card-text">
+        <ol class="custom-counter">
+            <li>Open Snapchat</li>
+            <li>Point camera at QR code</li>
+            <li>Press down on the screen to focus Snapchat on the QR Code</li>
+            <li>Download! Available on Apple and Google Play Stores</li>
+        </ol>
+    </p>
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+  </div>
+</div>
+</div>
+
+<% include partials/footer %>

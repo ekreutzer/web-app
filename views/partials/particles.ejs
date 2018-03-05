@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Particles</title>
+    <link href='//fonts.googleapis.com/css?family=Anaheim' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="//rawgithub.com/ottis/canvas-particles/master/js/particle.js"></script>
+    <script type="text/javascript" src="//rawgithub.com/ottis/canvas-particles/master/js/particle_system.js"></script>
+  </head>
+
+  <body>
+    <div class="bar"> <3 particles
+      <a href="https://github.com/ottis/canvas-particles" target="_parent" class="fork">
+        <img class="fork__img" src="https://ottis.github.io/inrt/images/octocat.png"/>
+      <span class="fork__text"> Fork me! </span>
+      </a>
+    </div>
+    <canvas id="container"></canvas>
+    <script type="text/javascript">
+      var system = new particleSystem({"canvas_id":"container", height: 400});
+      system.start();
+    </script>
+  

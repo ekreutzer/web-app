@@ -1,0 +1,551 @@
+<% include partials/header %>
+
+<!--<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style: "background: white">-->
+<!--  <button onclick="toggleNav()" style: "color: white" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon" style: "color: white" ></span>-->
+<!--  </button>-->
+<!--  <a class="navbar-brand" href="#" style="color: #68b7e7">Work Smarter</a>-->
+<!--  <div class="collapse2 navbar-collapse" id="navbarText">-->
+<!--    <ul class="navbar-nav mr-auto" style="color: white;">-->
+<!--        <li class = "nav-item active" style="color: white">-->
+<!--            <a class="nav-link" href="/" style="color: #68b7e7;">Home<span class="sr-only">(current)</span></a>-->
+<!--        </li>-->
+<!--      <li class="nav-item active" style="color: white;">-->
+<!--        <a class="nav-link" href="/book" style="color: #68b7e7;">Book a Room<span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+<!--      <li class="nav-item" style="color: white;">-->
+<!--        <a class="nav-link" href="/spaces" style="color: #68b7e7;">Find a Space</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item" style="color: white;">-->
+<!--        <a class="nav-link" href="/groups" style="color: #68b7e7;">Study groups</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+    <!--<span class="navbar-text" style="color: white;">-->
+    <!--  Navbar text with an inline element-->
+    <!--</span>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<div id="login"  style= "margin-top: 10vh">
+    <div class="text-center">
+                      <a href="/"><img src="https://i.imgur.com/pDBlNgw.png" title="source: imgur.com" /></a>
+                </div>
+    <h1 id="display-1" style= "padding-bottom: 40px, margin: 40px">Login</h1>
+    <form action="/auth" method="POST">
+        <div>
+          <label for="username">Username</label>
+          <br>
+          <input type="email" name = "email" placeholder="Email">
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <br>
+          <input type="password" name = "password" placeholder="Password">
+        </div>
+        <button>Submit</button>
+    </form>
+      <!--<form>-->
+      <!--  <div>-->
+      <!--    <label for="username">Username</label>-->
+      <!--    <br>-->
+      <!--    <input type="text" placeholder="Username">-->
+      <!--  </div>-->
+
+      <!--  <div>-->
+      <!--    <label for="password">Password</label>-->
+      <!--    <br>-->
+      <!--    <input type="text" placeholder="Password">-->
+      <!--  </div>-->
+        <!--<a class="nav-link" href="/book" style="color: #68b7e7;">Book a Room<span class="sr-only">(current)</span></a>-->
+      <!--  <input type="submit"value="Login">-->
+      <!--</form>-->
+</div>
+    
+<canvas id="nokey" width="800" height="800">
+<!--    <div class="panel panel-default">-->
+<!--  <div class="panel-body">-->
+<!--    Basic panel example-->
+<!--  </div>-->
+<!--</div>-->
+    </canvas>
+
+
+
+
+
+
+<style>
+.display-1{
+    opacity: 0.2;
+    color: white;
+}
+img{
+    vertical-align: middle;
+    border-style: none;
+    width:50px;
+}
+a{
+    display: inline-block;
+}
+#login{
+  background:#fff;
+  opacity:0.9;
+  padding:2em;
+  border:#ccc 2px solid;
+  position:absolute;
+  top:20%;
+  left:40%;
+}
+
+#login input[type="text"], #login input[type="password"]{
+  padding:7px;
+  margin-bottom:10px;
+  border:1px #ccc solid;
+}
+body {
+      color: #68b7e7;
+      text-align: center;
+      /*text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);*/
+      font-family: 'Montserrat', sans-serif;
+    }
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+    .site-wrapper {
+      display: table;
+      width: 100%;
+      height: 50%; 
+      min-height: 100%;
+      -webkit-box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+              box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+    }
+    .site-wrapper-inner {
+      display: table-cell;
+      vertical-align: top;
+    }
+    .cover-container {
+      margin-right: auto;
+      margin-left: auto;
+    }
+    
+    /* Padding for spacing */
+    .inner {
+      padding: 2rem;
+    }
+    
+    
+    /*
+     * Header
+     */
+    
+    .masthead {
+      margin-bottom: 2rem;
+    }
+    
+    .masthead-brand {
+      margin-bottom: 0;
+    }
+    
+    .nav-masthead .nav-link {
+      padding: .25rem 0;
+      font-weight: bold;
+      color: rgba(255,255,255,.5);
+      background-color: transparent;
+      border-bottom: .25rem solid transparent;
+    }
+    
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+      border-bottom-color: rgba(255,255,255,.25);
+    }
+    
+    .nav-masthead .nav-link + .nav-link {
+      margin-left: 1rem;
+    }
+    
+    .nav-masthead .active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+    
+    @media (min-width: 48em) {
+      .masthead-brand {
+        float: left;
+      }
+      .nav-masthead {
+        float: right;
+      }
+    }
+    
+    
+    /*
+     * Cover
+     */
+    
+    .cover {
+      padding: 0 1.5rem;
+    }
+    .cover heading{
+      
+    }
+    .cover .btn-lg {
+      padding: .75rem 1.25rem;
+      font-weight: bold;
+    }
+    
+    
+    /*
+     * Footer
+     */
+    
+    .mastfoot {
+      color: rgba(255,255,255,.5);
+    }
+    .navbar-collapse{
+        background-color:white;
+      height: 160px;
+      transition: height .5s cubic-bezier(.86,0,.07,1);
+      overflow: hidden;
+    }
+    .collapse2{
+      
+      height: 0;
+    }
+    
+    
+    /*
+     * Affix and center
+     */
+     
+    
+    @media (min-width: 40em) {
+      /* Pull out the header and footer */
+      .masthead {
+        position: center;
+        top: 50;
+      }
+      .mastfoot {
+        position: fixed;
+        bottom: 0;
+      }
+      /* Start the vertical centering */
+      .site-wrapper-inner {
+        vertical-align: middle;
+      }
+      /* Handle the widths */
+      .masthead,
+      .mastfoot,
+      .cover-container {
+        width: 100%; /* Must be percentage or pixels for horizontal alignment */
+      }
+    }
+    
+    @media (min-width: 62em) {
+      .masthead,
+      .mastfoot,
+      .cover-container {
+        width: 42rem;
+      }
+    }
+    .navbar-toggler .navbar-toggler-right{
+        background-color:white;
+      color: white;
+      
+    }
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+}
+canvas{
+    background-color: #a7d5f2;
+}
+</style>
+
+<script>
+var canvas = document.getElementById('nokey'),
+   can_w = parseInt(canvas.getAttribute('width')),
+   can_h = parseInt(canvas.getAttribute('height')),
+   ctx = canvas.getContext('2d');
+
+// console.log(typeof can_w);
+
+var ball = {
+      x: 40,
+      y: 40,
+      vx: 40,
+      vy: 40,
+      r: 40,
+      alpha: 10,
+      phase: 5
+   },
+   ball_color = {
+       r: 237,
+       g: 184,
+       b: 48
+   },
+   R = 3.5,
+   balls = [],
+
+   alpha_f = 0.03,
+   alpha_phase = 0,
+    
+// Line
+   link_line_width = 1.2,
+   dis_limit = 260,
+   add_mouse_point = true,
+   mouse_in = true,
+   mouse_ball = {
+      x: 0,
+      y: 0,
+      vx: 0,
+      vy: 0,
+      r: 0,
+      type: 'mouse'
+   };
+
+// Random speed
+function getRandomSpeed(pos){
+    var  min = -1,
+       max = 2;
+    switch(pos){
+        case 'top':
+            return [randomNumFrom(min, max), randomNumFrom(0.1, max)];
+            break;
+        case 'right':
+            return [randomNumFrom(min, -0.1), randomNumFrom(min, max)];
+            break;
+        case 'bottom':
+            return [randomNumFrom(min, max), randomNumFrom(min, -0.1)];
+            break;
+        case 'left':
+            return [randomNumFrom(0.1, max), randomNumFrom(min, max)];
+            break;
+        default:
+            return;
+            break;
+    }
+}
+function randomArrayItem(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+function randomNumFrom(min, max){
+    return Math.random()*(max - min) + min;
+}
+console.log(randomNumFrom(0, 10));
+// Random Ball
+function getRandomBall(){
+    var pos = randomArrayItem(['top', 'right', 'bottom', 'left']);
+    switch(pos){
+        case 'top':
+            return {
+                x: randomSidePos(can_w),
+                y: -R,
+                vx: getRandomSpeed('top')[0],
+                vy: getRandomSpeed('top')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'right':
+            return {
+                x: can_w + R,
+                y: randomSidePos(can_h),
+                vx: getRandomSpeed('right')[0],
+                vy: getRandomSpeed('right')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'bottom':
+            return {
+                x: randomSidePos(can_w),
+                y: can_h + R,
+                vx: getRandomSpeed('bottom')[0],
+                vy: getRandomSpeed('bottom')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'left':
+            return {
+                x: -R,
+                y: randomSidePos(can_h),
+                vx: getRandomSpeed('left')[0],
+                vy: getRandomSpeed('left')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+    }
+}
+function randomSidePos(length){
+    return Math.ceil(Math.random() * length);
+}
+
+// Draw Ball
+function renderBalls(){
+    Array.prototype.forEach.call(balls, function(b){
+       if(!b.hasOwnProperty('type')){
+           ctx.fillStyle = 'rgba('+ball_color.r+','+ball_color.g+','+ball_color.b+','+b.alpha+')';
+           ctx.beginPath();
+           ctx.arc(b.x, b.y, R, 0, Math.PI*2, true);
+           ctx.closePath();
+           ctx.fill();
+       }
+    });
+}
+
+// Update balls
+function updateBalls(){
+    var new_balls = [];
+    Array.prototype.forEach.call(balls, function(b){
+        b.x += b.vx;
+        b.y += b.vy;
+        
+        if(b.x > -(50) && b.x < (can_w+50) && b.y > -(50) && b.y < (can_h+50)){
+           new_balls.push(b);
+        }
+        
+        // alpha change
+        b.phase += alpha_f;
+        b.alpha = Math.abs(Math.cos(b.phase));
+        // console.log(b.alpha);
+    });
+    
+    balls = new_balls.slice(0);
+}
+
+// loop alpha
+function loopAlphaInf(){
+    
+}
+
+// Draw lines
+function renderLines(){
+    var fraction, alpha;
+    for (var i = 0; i < balls.length; i++) {
+        for (var j = i + 1; j < balls.length; j++) {
+           
+           fraction = getDisOf(balls[i], balls[j]) / dis_limit;
+            
+           if(fraction < 1){
+               alpha = (1 - fraction).toString();
+
+               ctx.strokeStyle = 'rgba(	4, 0, 249,'+alpha+')';
+               ctx.lineWidth = link_line_width;
+               
+               ctx.beginPath();
+               ctx.moveTo(balls[i].x, balls[i].y);
+               ctx.lineTo(balls[j].x, balls[j].y);
+               ctx.stroke();
+               ctx.closePath();
+           }
+        }
+    }
+}
+
+// calculate distance between two points
+function getDisOf(b1, b2){
+    var  delta_x = Math.abs(b1.x - b2.x),
+       delta_y = Math.abs(b1.y - b2.y);
+    
+    return Math.sqrt(delta_x*delta_x + delta_y*delta_y);
+}
+
+// add balls if there a little balls
+function addBallIfy(){
+    if(balls.length < 20){
+        balls.push(getRandomBall());
+    }
+}
+
+// Render
+function render(){
+    ctx.clearRect(0, 0, can_w, can_h);
+    
+    renderBalls();
+    
+    renderLines();
+    
+    updateBalls();
+    
+    addBallIfy();
+    
+    window.requestAnimationFrame(render);
+}
+
+// Init Balls
+function initBalls(num){
+    for(var i = 1; i <= num; i++){
+        balls.push({
+            x: randomSidePos(can_w),
+            y: randomSidePos(can_h),
+            vx: getRandomSpeed('bottom')[0],
+            vy: getRandomSpeed('left')[1],
+            r: R,
+            alpha: 1,
+            phase: randomNumFrom(0, 10)
+        });
+    }
+}
+// Init Canvas
+function initCanvas(){
+    canvas.setAttribute('width', window.innerWidth);
+    canvas.setAttribute('height', window.innerHeight);
+    
+    can_w = parseInt(canvas.getAttribute('width'));
+    can_h = parseInt(canvas.getAttribute('height'));
+}
+window.addEventListener('resize', function(e){
+    console.log('Window Resize...');
+    initCanvas();
+});
+
+function goMovie(){
+    initCanvas();
+    initBalls(20);
+    window.requestAnimationFrame(render);
+}
+goMovie();
+
+// Mouse effect
+canvas.addEventListener('mouseenter', function(){
+    console.log('mouseenter');
+    mouse_in = true;
+    balls.push(mouse_ball);
+});
+canvas.addEventListener('mouseleave', function(){
+    console.log('mouseleave');
+    mouse_in = false;
+    var new_balls = [];
+    Array.prototype.forEach.call(balls, function(b){
+        if(!b.hasOwnProperty('type')){
+            new_balls.push(b);
+        }
+    });
+    balls = new_balls.slice(0);
+    addBallIfy();
+});
+canvas.addEventListener('mousemove', function(e){
+    var e = e || window.event;
+    mouse_ball.x = e.pageX;
+    mouse_ball.y = e.pageY;
+    // console.log(mouse_ball);
+});
+</script>
+
+
+
+
+    
+<% include partials/footer %>
