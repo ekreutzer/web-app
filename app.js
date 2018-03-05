@@ -47,8 +47,8 @@ app.post('/auth', function(req, res){
     console.log(username);
     console.log(password);
     auth(username,password,res);
-
 })
+
 app.get("/home",function(req,res){
     res.render("home");
     console.log(req.body.user);
@@ -57,11 +57,13 @@ app.get("/home",function(req,res){
 app.get("/book", function(req,res){
     res.render("book");
 })
+
 app.get("/groups", function(req,res){
     res.render("groups", {
         groups : studyGroups
     });
 })
+
 app.get("/test", function(req,res){
     res.render("test", {
         groups : studyGroups
@@ -69,8 +71,6 @@ app.get("/test", function(req,res){
 })
 
 app.post("/book", function(req, res){
-     //get data from form and add to campgrounds array
-     
 
 });
 
