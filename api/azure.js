@@ -113,8 +113,10 @@ exports.login =  async function (em,pwd,res){
             for (var j = 0; j < response.data.length; j++){
                 if ( response.data[j].Username == em && response.data[j].Password == password){
                     auth = true;                    
-                        console.log(response.data[j]);
-                        res.render('home',{user: response.data[j]});
+                        //console.log(response.data[j]);
+                        //res.redirect('home',{user: response.data[j]});
+                        app.locals.user = response.data[j];
+                        res.redirect("home");
                         
 
                     

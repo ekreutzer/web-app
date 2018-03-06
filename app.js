@@ -14,6 +14,15 @@ var axios = require("axios");
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/tether/dist/js/tether.min.js'));
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/popper.js/dist/popper.min.js'));
 
+app.locals = {
+    user: undefined
+
+    }
+
+// app.use(function(req,res,next){
+//     app.locals.user = req.session.user;
+//     next();
+// })
 
 
 var studyGroups=[
@@ -33,8 +42,13 @@ app.set("view engine", "ejs");
 // app.use(require('./middleware/auth'));
 
 app.get("/", function(req, res){
-    res.render("login");
     
+    if(app.locals.user == undefined){
+        res.render("login");
+    }else{
+        res.render("home");
+    }
+
 });
 
 app.get("/login", function(req, res){
@@ -44,14 +58,14 @@ app.get("/login", function(req, res){
 app.post('/auth', function(req, res){
     var username = req.body.email;
     var password = req.body.password;
-    console.log(username);
-    console.log(password);
     auth(username,password,res);
+   
 })
 
 app.get("/home",function(req,res){
     res.render("home");
-    console.log(req.body.user);
+    
+    console.log(app.locals.user);
 })
 
 app.get("/book", function(req,res){
