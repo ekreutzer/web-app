@@ -1,7 +1,5 @@
-//var azure = require('../rhume-app-master/api/azure');
-var express = require("express");
+var express = require('express');
 var session = require('express-session');
-
 var auth = require('../rhume-app-master/middleware/auth');
 // var angular = require("angular");
 var $ = require("jquery");
@@ -16,11 +14,17 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/tether/dist/js/tether.min.js'));
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/popper.js/dist/popper.min.js'));
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    //cookie: { secure: true }
+  }));
+ 
 
-// app.locals = {
-//     user: undefined
 
-//     }
+
+
 
 // app.use(function(req,res,next){
 //     app.locals.user = req.session.user;
@@ -44,13 +48,16 @@ app.set("view engine", "ejs");
 //app.use('/api/azure');
 // app.use(require('./middleware/auth'));
 
+
+
 app.get("/", function(req, res){
     //console.log(app.locals.user);
-    if(user_data == undefined){
+    //if(user_data == undefined){
+        //console.log(azure.login(user_data, res));
         res.render("login");
-    }else{
-        res.render("home");
-    }
+    // }else{
+    //     res.render("home");
+    // }
 
 });
 
@@ -103,4 +110,6 @@ app.listen(process.env.PORT, process.env.IP, function(){
      console.log("SERVER START");
 });
 app.listen(3000);
+
+
 

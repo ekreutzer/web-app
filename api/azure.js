@@ -3,8 +3,6 @@ var jsSHA = require('jssha');
 var convertTime = require('convert-time');
 var auth = require('../credentials');
 
-var user_data;
-
 exports.notifyMembers = async function (phone, name, groupName, eid, from, to, alertCtrl){
     from = from.replace(/:/g,'-');
     to = to.replace(/:/g,'-');
@@ -93,7 +91,6 @@ exports.updateAnnouncements = async function (announcement){
 
 
 exports.login =  async function (em,pwd,res){
-    
     let shaObj = new jsSHA("SHA-256", "TEXT");
     shaObj.update(pwd);
     let hash = shaObj.getHash("HEX");
@@ -115,10 +112,12 @@ exports.login =  async function (em,pwd,res){
             for (var j = 0; j < response.data.length; j++){
                 if ( response.data[j].Username == em && response.data[j].Password == password){
                     auth = true;                    
-                        //console.log(response.data[j]);
-                        res.render('home',{user: response.data[j]});
-                        user_data = response.data[j];
+                        
+                        var user_data = response.data[j];
                         console.log(user_data);
+                        res.render('home');
+                        
+                        //res.render('home',{user: response.data[j]});
                         
                         
 
@@ -137,7 +136,6 @@ exports.login =  async function (em,pwd,res){
         .catch(function(err){
             // alert('Something went wrong. Please try again.');        
         })
-          
         }
 
 
