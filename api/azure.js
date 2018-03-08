@@ -3,6 +3,8 @@ var jsSHA = require('jssha');
 var convertTime = require('convert-time');
 var auth = require('../credentials');
 
+var user_data;
+
 exports.notifyMembers = async function (phone, name, groupName, eid, from, to, alertCtrl){
     from = from.replace(/:/g,'-');
     to = to.replace(/:/g,'-');
@@ -114,9 +116,10 @@ exports.login =  async function (em,pwd,res){
                 if ( response.data[j].Username == em && response.data[j].Password == password){
                     auth = true;                    
                         //console.log(response.data[j]);
-                        //res.redirect('home',{user: response.data[j]});
-                        app.locals.user = response.data[j];
-                        res.redirect("home");
+                        res.render('home',{user: response.data[j]});
+                        user_data = response.data[j];
+                        console.log(user_data);
+                        
                         
 
                     

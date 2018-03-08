@@ -1,23 +1,26 @@
 //var azure = require('../rhume-app-master/api/azure');
 var express = require("express");
+var session = require('express-session');
+
 var auth = require('../rhume-app-master/middleware/auth');
 // var angular = require("angular");
 var $ = require("jquery");
 // window.Popper = require('popper.js');
-
+var azure = require('../rhume-app-master/api/azure');
 // var particlesJS = require("particlesjs");
 var app = express();
 var request = require("request");
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended:true}));
 var axios = require("axios");
+app.use(bodyParser.urlencoded({extended:true}));
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/tether/dist/js/tether.min.js'));
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/popper.js/dist/popper.min.js'));
 
-app.locals = {
-    user: undefined
 
-    }
+// app.locals = {
+//     user: undefined
+
+//     }
 
 // app.use(function(req,res,next){
 //     app.locals.user = req.session.user;
@@ -42,8 +45,8 @@ app.set("view engine", "ejs");
 // app.use(require('./middleware/auth'));
 
 app.get("/", function(req, res){
-    
-    if(app.locals.user == undefined){
+    //console.log(app.locals.user);
+    if(user_data == undefined){
         res.render("login");
     }else{
         res.render("home");
@@ -65,7 +68,7 @@ app.post('/auth', function(req, res){
 app.get("/home",function(req,res){
     res.render("home");
     
-    console.log(app.locals.user);
+   // console.log(app.locals.user);
 })
 
 app.get("/book", function(req,res){
