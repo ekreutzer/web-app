@@ -23,9 +23,6 @@ app.use(session({
  
 
 
-
-
-
 // app.use(function(req,res,next){
 //     app.locals.user = req.session.user;
 //     next();

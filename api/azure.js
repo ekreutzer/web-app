@@ -90,53 +90,30 @@ exports.updateAnnouncements = async function (announcement){
 }
 
 
-exports.login =  async function (em,pwd,res){
+exports.login =  async function login(em ,pwd ,res){
     let shaObj = new jsSHA("SHA-256", "TEXT");
     shaObj.update(pwd);
     let hash = shaObj.getHash("HEX");
     let password;
     password = hash;
     
-    let uri1 = "https://rhume-service.herokuapp.com/Tasks/users";
+    let uri1 = "http://rhume-service.herokuapp.com/Tasks/login";
     
-        await axios.get(uri1,{
-            headers: {
-                auth: auth.token
-            }
-           
-        })
-    
-        .then(function(response){
-            var auth = false;
-
-            for (var j = 0; j < response.data.length; j++){
-                if ( response.data[j].Username == em && response.data[j].Password == password){
-                    auth = true;                    
-                        
-                        var user_data = response.data[j];
-                        console.log(user_data);
-                        res.render('home');
-                        
-                        //res.render('home',{user: response.data[j]});
-                        
-                        
-
-                    
-                }
-            }
-              
-
-            if(auth == false) {
-                console.log("Incorrect credentials.");
-            }
-            // alert('Incorrect credentials. Please try again.');
-            
-        })
-
-        .catch(function(err){
-            // alert('Something went wrong. Please try again.');        
-        })
+    await axios.post(uri1,{
+        auth:authToken,
+        username:em,
+        password:password
+    })
+ 
+    .then(function(response){
+        if(response.data.Name){
+                res.render('home'); 
         }
+        else{
+            console.log(response.data);
+        }
+    })
+ }
 
 
 exports.getAllUsers = async function (users){
