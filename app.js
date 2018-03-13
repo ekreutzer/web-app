@@ -1,25 +1,30 @@
 var express = require('express');
-var session = require('express-session');
+var esession = require('express-session');
+var cookieParser = require('cookie-parser');
+var session = require('client-sessions');
 var auth = require('../rhume-app-master/middleware/auth');
 // var angular = require("angular");
 var $ = require("jquery");
-// window.Popper = require('popper.js');
 var azure = require('../rhume-app-master/api/azure');
-// var particlesJS = require("particlesjs");
 var app = express();
 var request = require("request");
 var bodyParser = require("body-parser");
 var axios = require("axios");
+
+
+
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(cookieParser());
+//app.use(expressValidator());
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/tether/dist/js/tether.min.js'));
 app.use('/scripts', express.static(__dirname + 'rhume-app/node_modules/popper.js/dist/popper.min.js'));
-
 app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    //cookie: { secure: true }
+    cookieName: 'session',
+    secret: 'random_string_goes_here',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
   }));
+
  
 
 
@@ -47,18 +52,14 @@ app.set("view engine", "ejs");
 
 
 
+
 app.get("/", function(req, res){
-    //console.log(app.locals.user);
-    //if(user_data == undefined){
-        //console.log(azure.login(user_data, res));
-        res.render("login");
-    // }else{
-    //     res.render("home");
-    // }
+    res.render("login");
+    
 
 });
 
-app.get("/login", function(req, res){
+app.get("/login", function(req, res){  
     res.render('login');
 });
 
@@ -66,29 +67,51 @@ app.post('/auth', function(req, res){
     var username = req.body.email;
     var password = req.body.password;
     auth(username,password,res);
+    req.session.username = username;
+    req.session.password = password;
    
 })
 
 app.get("/home",function(req,res){
-    res.render("home");
+    if(req.session.username){
+        res.render("/");
+    }else{
+        res.render("login");
+    }
+    
     
    // console.log(app.locals.user);
 })
 
 app.get("/book", function(req,res){
-    res.render("book");
+    if(req.session.username){
+        res.render("book");
+    }else{
+        res.render("login");
+    }
+    
 })
 
 app.get("/groups", function(req,res){
-    res.render("groups", {
-        groups : studyGroups
-    });
+    if(req.session.username){
+        res.render("groups", {
+            groups : studyGroups
+        });
+    }else{
+        res.render("login");
+    }
+
 })
 
 app.get("/test", function(req,res){
-    res.render("test", {
-        groups : studyGroups
-    });
+    if(req.session.username){
+        res.render("test", {
+            groups : studyGroups
+        });
+    }else{
+        res.render("login");
+    }
+
 })
 
 app.post("/book", function(req, res){
@@ -96,11 +119,20 @@ app.post("/book", function(req, res){
 });
 
 app.get("/download", function(req,res){
-    res.render("download");
+    if(req.session.username){
+        res.render("download");
+    }else{
+        res.render("login");
+    }
 })
 
 app.get("/spaces", function(req,res){
-    res.render("spaces");
+    if(req.session.username){
+        res.render("spaces");
+    }else{
+        res.render("login");
+    }
+    
 })
 
 app.listen(process.env.PORT, process.env.IP, function(){
